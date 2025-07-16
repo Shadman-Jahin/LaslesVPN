@@ -169,21 +169,35 @@
 
 
 :root {
-    color-scheme: light;
+    color-scheme: dark;
     --space: 0.25rem;
 
+    /* $ LIGHT THEME */
+    --light-bg: #fff;
     --light-heading: #0B132A;
     --light-para: #4F5665;
     --light-para-shade-1: #AFB5C0;
     --light-slider: #fff;
+    --light-slider-shadow: #dedede;
+    --light-nav-bg: #fffa;
 
+    /* $ DARK THEME */
+    --dark-bg: #0d001d;
+    --dark-heading: #fff;
+    --dark-para: #94a2c1;
+    --dark-slider: #0d001d;
+    --dark-slider-shadow: #000;
+    --dark-nav-bg: #0d001daa;
+
+    /* $ BUTTON */
     --btn: #F53838;
     --btn-text: #fff;
     --btn-shadow: rgba(245, 56, 56, 0.35);
 
-    --dark-heading: #fff;
-    --dark-para: #94a2c1;
-    --dark-slider: #0d001d;
+    /* $ OTHERS */
+    --vertical-rule: #EEEFF2;
+    --score-icon-bg: #FFECEC;
+    --score-shadow: rgba(13, 16, 37, 0.06);
 }
 
 * {
@@ -210,10 +224,10 @@ a:hover {
     opacity: .8;
 }
 
-/* body {
-    background: #0d001d;
+body {
+    background: light-dark(var(--light-bg), var(--dark-bg));
     color: white;
-} */
+}
 
 /* * ================= */
 /* * TYPOGRAPHY */
@@ -349,14 +363,14 @@ p {
 
 .narrow {
     max-width: 55rem;
-    text-align: center;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, min(45rem, 100%));
+    grid-template-columns: repeat(auto-fit, minmax(min(45rem, 100%), 54rem));
     place-content: center;
     place-items: center;
+    gap: 4rem;
 }
 
 
@@ -366,7 +380,13 @@ p {
 /* * =========================== */
 
 nav {
-    padding: 4.5rem 0;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    position: -webkit-sticky;
+    position: sticky;
+    backdrop-filter: blur(10px);
+    background: light-dark(var(--light-nav-bg), var(--dark-nav-bg));
+    top: 0;
 }
 
 nav .container {
@@ -402,14 +422,15 @@ nav .slider {
     nav .slider {
         position: fixed;
         top: 0;
-        right: -30rem;
+        right: -120%;
+        z-index: 10;
         background: light-dark(var(--light-slider), var(--dark-slider));
         flex-direction: column;
         height: 100vh;
         text-align: center;
         width: min(30rem, 100%);
         padding: 5rem 0 1rem;
-        box-shadow: -.1rem 0 3rem #dedede;
+        box-shadow: -.1rem 0 3rem light-dark(var(--light-slider-shadow), var(--dark-slider-shadow));
         transition: .5s;
     }
 
@@ -445,4 +466,45 @@ nav .sign {
 
 nav .sign a {
     color: light-dark(var(--light-heading), var(--dark-heading))
+}
+
+
+/* --------------- */
+/* BANNER CONTENT */
+
+.banner {
+    margin: 10rem 0;
+}
+
+/* ----------------- */
+/* SCORE */
+
+.score .container {
+    display: flex;
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6rem 0;
+    border-radius: 1rem;
+
+    box-shadow: 0 5rem 5.7rem var(--score-shadow);
+}
+
+.score .score-item {
+    display: flex;
+    align-items: center;
+    padding: 0 7rem;
+    flex: 1;
+    gap: 3.5rem;
+}
+
+.score .score-item+.score-item {
+    border-left: .2rem solid var(--vertical-rule);
+}
+
+.score .score-item .score-icon {
+    border-radius: 7rem;
+    background: var(--score-icon-bg);
+    padding: 1.55rem;
 }
