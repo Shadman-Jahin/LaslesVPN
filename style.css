@@ -162,6 +162,86 @@
     margin-top: calc(var(--space) * 40);
 }
 
+.mt-41 {
+    margin-top: calc(var(--space) * 41);
+}
+
+.mt-42 {
+    margin-top: calc(var(--space) * 42);
+}
+
+.mt-43 {
+    margin-top: calc(var(--space) * 43);
+}
+
+.mt-44 {
+    margin-top: calc(var(--space) * 44);
+}
+
+.mt-45 {
+    margin-top: calc(var(--space) * 45);
+}
+
+.mt-46 {
+    margin-top: calc(var(--space) * 46);
+}
+
+.mt-47 {
+    margin-top: calc(var(--space) * 47);
+}
+
+.mt-48 {
+    margin-top: calc(var(--space) * 48);
+}
+
+.mt-49 {
+    margin-top: calc(var(--space) * 49);
+}
+
+.mt-50 {
+    margin-top: calc(var(--space) * 50);
+}
+
+.mt-51 {
+    margin-top: calc(var(--space) * 51);
+}
+
+.mt-52 {
+    margin-top: calc(var(--space) * 52);
+}
+
+.mt-53 {
+    margin-top: calc(var(--space) * 53);
+}
+
+.mt-54 {
+    margin-top: calc(var(--space) * 54);
+}
+
+.mt-55 {
+    margin-top: calc(var(--space) * 55);
+}
+
+.mt-56 {
+    margin-top: calc(var(--space) * 56);
+}
+
+.mt-57 {
+    margin-top: calc(var(--space) * 57);
+}
+
+.mt-58 {
+    margin-top: calc(var(--space) * 58);
+}
+
+.mt-59 {
+    margin-top: calc(var(--space) * 59);
+}
+
+.mt-60 {
+    margin-top: calc(var(--space) * 60);
+}
+
 
 /* * ========== */
 /* * GLOBAL */
@@ -174,6 +254,7 @@
 
     /* $ LIGHT THEME */
     --light-bg: #fff;
+    --light-bg-shade-1: #FAFAFA;
     --light-heading: #0B132A;
     --light-para: #4F5665;
     --light-para-shade-1: #AFB5C0;
@@ -183,6 +264,7 @@
 
     /* $ DARK THEME */
     --dark-bg: #0d001d;
+    --dark-bg-shade-1: #100023;
     --dark-heading: #fff;
     --dark-para: #94a2c1;
     --dark-slider: #0d001d;
@@ -198,6 +280,7 @@
     --vertical-rule: #EEEFF2;
     --score-icon-bg: #FFECEC;
     --score-shadow: rgba(13, 16, 37, 0.06);
+    --card-border-color: #DDD;
 }
 
 * {
@@ -363,6 +446,9 @@ p {
 
 .narrow {
     max-width: 55rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .grid {
@@ -394,8 +480,8 @@ p {
 .toggle-switch {
     transform: scale(.6);
     position: relative;
-    width: 100px;
-    height: 50px;
+    width: 10rem;
+    height: 5rem;
     --light: #fff;
     --dark: rgb(55, 0, 118);
     --link: rgb(27, 129, 112);
@@ -405,11 +491,11 @@ p {
 .switch-label {
     position: absolute;
     width: 100%;
-    height: 50px;
+    height: 5rem;
     background-color: var(--dark);
-    border-radius: 25px;
+    border-radius: 2.5rem;
     cursor: pointer;
-    border: 3px solid var(--dark);
+    border: .3rem solid var(--dark);
 }
 
 .checkbox {
@@ -421,7 +507,7 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 25px;
+    border-radius: 2.5rem;
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
@@ -433,13 +519,13 @@ p {
 .slider-dark::before {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 25px;
-    height: 25px;
+    top: .7rem;
+    left: .7rem;
+    width: 3.0rem;
+    height: 3.0rem;
     border-radius: 50%;
-    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
-    box-shadow: inset 12px -4px 0px 0px var(--light);
+    -webkit-box-shadow: inset 1.2rem -.4rem 0 0 var(--light);
+    box-shadow: inset 1.2rem -.4rem 0 0 var(--light);
     background-color: var(--dark);
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -461,6 +547,7 @@ p {
 nav {
     padding: 4rem 0 2rem;
     position: fixed;
+    z-index: 10;
     backdrop-filter: blur(10px);
     background: light-dark(var(--light-nav-bg), var(--dark-nav-bg));
     top: 0;
@@ -617,4 +704,105 @@ nav .sign a {
         translate: -50% 0;
     }
 
+}
+
+
+
+
+/* * ================ */
+/* * FEATURE */
+/* * ================ */
+
+#feature {
+    padding: 10rem 0;
+}
+
+#feature ul li {
+    position: relative;
+    text-indent: 3.4rem;
+}
+
+#feature ul li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
+    background: url("images/header/check-icon.svg") no-repeat center / cover;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+
+/* * =============== */
+/* * CHOOSE */
+/* * =============== */
+
+#choose {
+    padding: 8rem 0;
+    background: light-dark(var(--light-bg-shade-1), var(--dark-bg-shade-1));
+}
+
+#choose .choose-plan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#choose .choose-card {
+    padding: 8rem 8rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: .2rem solid var(--card-border-color);
+    border-radius: 1rem;
+}
+
+#choose .choose-card li {
+    position: relative;
+    text-indent: 4.4rem;
+}
+
+#choose .choose-card li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+    background: url("images/choose/check.svg");
+    width: 2.4rem;
+    height: 2.4rem;
+
+}
+
+
+/* * =============== */
+/* * NETWORK */
+/* * =============== */
+
+#network {
+    padding: 10rem 0;
+}
+
+#network .brands {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4.5rem;
+}
+
+#network .brands .brand-image {
+    width: 19rem;
+    height: 6rem;
+}
+
+#network .brands img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
