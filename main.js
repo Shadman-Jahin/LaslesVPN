@@ -26,6 +26,43 @@ if (input) {
 }
 
 
+// * =====================
+// * SWIPER JS
+// * =====================
+
+
+const swiper = new Swiper('.carousel-custom', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 50,
+
+    //  pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // Responsive
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        992: {
+            slidesPerView: 2,
+        },
+
+        1200: {
+            slidesPerView: 3
+        }
+    }
+});
 
 
 
