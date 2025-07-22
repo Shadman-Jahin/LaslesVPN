@@ -252,7 +252,7 @@
     color-scheme: dark;
     --space: 0.25rem;
 
-    /* $ LIGHT THEME */
+    /* ! LIGHT THEME */
     --light-bg: #fff;
     --light-bg-shade-1: #FAFAFA;
     --light-heading: #0B132A;
@@ -262,7 +262,7 @@
     --light-slider-shadow: #dedede;
     --light-nav-bg: #fffa;
 
-    /* $ DARK THEME */
+    /* ! DARK THEME */
     --dark-bg: #0d001d;
     --dark-bg-shade-1: #100023;
     --dark-heading: #fff;
@@ -271,17 +271,21 @@
     --dark-slider-shadow: #000;
     --dark-nav-bg: #0d001daa;
 
-    /* $ BUTTON */
+    /* ! BUTTON */
     --btn: #F53838;
     --btn-text: #fff;
     --btn-shadow: rgba(245, 56, 56, 0.35);
 
-    /* $ OTHERS */
+    /* ! OTHERS */
+    --scrollbar-bg: linear-gradient(var(--btn), #f70);
     --vertical-rule: #EEEFF2;
     --score-icon-bg: #FFECEC;
     --score-shadow: rgba(13, 16, 37, 0.06);
     --card-border-color: #DDD;
-    --carousel-bullet-color: #DDE0E4
+    --carousel-bullet-color: #DDE0E4;
+    /* ! ANIMATION */
+    --animate-delay: .3s;
+    --animate-duration: 1000ms;
 }
 
 * {
@@ -497,6 +501,21 @@ p {
     place-items: center;
     gap: 4rem;
 }
+
+/* * ========= */
+/* * SCROLLBAR */
+/* * ========= */
+
+::-webkit-scrollbar {
+    width: .5rem;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-bg);
+    border-radius: 4rem;
+}
+
 
 
 

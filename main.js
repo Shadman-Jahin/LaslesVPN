@@ -25,6 +25,34 @@ function initializeLenis() {
 // Ensure Lenis initializes after the DOM is ready
 document.addEventListener('DOMContentLoaded', initializeLenis);
 
+// * ================
+// * AOS INITIALIZE
+// * ================
+
+AOS.init();
+
+// * =======================
+// * SPLITTING.JS INTIALIZE
+// * =======================
+
+Splitting();
+let speed = .05;
+
+const chars = document.querySelectorAll('.char');
+chars.forEach((char, i) => {
+    if (char.parentElement.parentElement.dataset.customSpeed) {
+        speed = Number(char.parentElement.parentElement.dataset.customSpeed);
+    }
+    console.log(speed);
+    const animatedClass = [];
+    char.parentElement.parentElement.classList.forEach(el => {
+        if (el.startsWith("animate__")) animatedClass.push(el);
+    });
+    if (animatedClass.length) char.classList.add(...animatedClass);
+    char.style.animationDelay = `${i * speed}s`;
+});
+
+
 // * ========================
 // * LIGHT/DARK MODE
 // * ========================
