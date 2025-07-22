@@ -313,6 +313,31 @@ body {
     color: light-dark(var(--light-heading), var(--dark-heading));
 }
 
+/* -------------- */
+/* LENIS */
+
+/* style.css */
+
+/* Recommended Lenis CSS */
+html.lenis {
+    height: auto;
+    /* Allow content to dictate height */
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+    /* Disable native smooth scroll behavior */
+}
+
+/* For elements that should not be affected by Lenis smooth scroll */
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
 /* * ================= */
 /* * TYPOGRAPHY */
 /* * ================= */
