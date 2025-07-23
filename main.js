@@ -32,114 +32,165 @@ document.addEventListener('DOMContentLoaded', initializeLenis);
 
 // AOS.init();
 
-// Get all elements that use AOS and have a data-animation-class attribute
-const aosAnimatedElements = document.querySelectorAll('[data-aos][data-animation-class]');
+// // Get all elements that use AOS and have a data-animation-class attribute
+// const aosAnimatedElements = document.querySelectorAll('[data-aos][data-animation-class]');
 
-aosAnimatedElements.forEach(element => {
-    // Observe changes to the element's class list
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'class' && element.classList.contains('aos-animate')) {
-                const animationClass = element.dataset.animationClass;
-                // Add Animate.css classes only when aos-animate is present
-                element.classList.add('animate__animated', animationClass);
+// aosAnimatedElements.forEach(element => {
+//     // Observe changes to the element's class list
+//     const observer = new MutationObserver((mutations) => {
+//         mutations.forEach((mutation) => {
+//             if (mutation.attributeName === 'class' && element.classList.contains('aos-animate')) {
+//                 const animationClass = element.dataset.animationClass;
+//                 // Add Animate.css classes only when aos-animate is present
+//                 element.classList.add('animate__animated', animationClass);
 
-                // Optional: Remove the animation classes after the animation completes
-                // This prevents the animation from re-playing if the element goes out of view and comes back
-                element.addEventListener('animationend', () => {
-                    element.classList.remove('animate__animated', animationClass);
-                }, { once: true }); // Use { once: true } to remove the listener after it fires
-            }
-        });
-    });
+//                 // Optional: Remove the animation classes after the animation completes
+//                 // This prevents the animation from re-playing if the element goes out of view and comes back
+//                 element.addEventListener('animationend', () => {
+//                     element.classList.remove('animate__animated', animationClass);
+//                 }, { once: true }); // Use { once: true } to remove the listener after it fires
+//             }
+//         });
+//     });
 
-    // Start observing the 'class' attribute for changes
-    observer.observe(element, { attributes: true });
+//     // Start observing the 'class' attribute for changes
+//     observer.observe(element, { attributes: true });
+// });
+
+// * =======================
+// * SPLITTING.JS INITIALIZE
+// * =======================
+
+
+// // Initialize Splitting
+// Splitting();
+// let speed = .05; // Default speed
+
+// const parent = document.querySelectorAll("[data-splitting]");
+// parent.forEach(prt => {
+//     const chars = prt.querySelectorAll('.char');
+//     chars.forEach((char, i) => {
+//         const originalElement = char.closest('[data-splitting]');
+
+//         if (originalElement && originalElement.dataset.customSpeed) {
+//             speed = Number(originalElement.dataset.customSpeed);
+//         } else {
+//             speed = .05;
+//         }
+//         const animatedClass = originalElement.dataset.animateClass.trim().split(" ");
+//         if (animatedClass.length) {
+//             char.classList.add(...animatedClass, "animate__animated");
+//         }
+
+//         char.style.animationDelay = `${i * speed}s`;
+//     });
+// })
+
+// ! CHAT GPT START
+// ✅ Run Splitting first
+Splitting();
+
+// ✅ AOS Init
+AOS.init({
+    once: false // To allow repeated animation
 });
 
-// * =======================
-// * SPLITTING.JS INTIALIZE
-// * =======================
+const elements = document.querySelectorAll('[data-splitting][data-aos][data-animate-class]');
 
-AOS.init();
-// Initialize Splitting
-Splitting();
-let speed = .05; // Default speed
+elements.forEach(parent => {
+    const chars = parent.querySelectorAll('.char');
+    const animateClass = parent.dataset.animateClass.trim().split(" ");
+    const speed = Number(parent.dataset.customSpeed) || 0.05;
 
-const parent = document.querySelectorAll("[data-splitting]");
-parent.forEach(prt => {
-    const chars = prt.querySelectorAll('.char');
-    chars.forEach((char, i) => {
-        const originalElement = char.closest('[data-splitting]');
+    // ✅ Keep a flag to check current state
+    let isAnimated = false;
 
-        if (originalElement && originalElement.dataset.customSpeed) {
-            speed = Number(originalElement.dataset.customSpeed);
+    // Watch class changes with MutationObserver
+    const observer = new MutationObserver(() => {
+        if (parent.classList.contains('aos-animate')) {
+            if (!isAnimated) {
+                chars.forEach((char, i) => {
+                    char.classList.remove("animate__animated", ...animateClass); // Reset
+                    void char.offsetWidth; // Force reflow
+                    char.classList.add("animate__animated", ...animateClass);
+                    char.style.animationDelay = `${i * speed}s`;
+                });
+                isAnimated = true;
+            }
         } else {
-            speed = .05;
+            // Reset on scroll out
+            chars.forEach(char => {
+                char.classList.remove("animate__animated", ...animateClass);
+                char.style.animationDelay = '0s';
+            });
+            isAnimated = false;
         }
-        const animatedClass = originalElement.dataset.animateClass.trim().split(" ");
-        if (animatedClass.length) {
-            char.classList.add(...animatedClass, "animate__animated");
-        }
-
-        char.style.animationDelay = `${i * speed}s`;
     });
-})
+
+    observer.observe(parent, {
+        attributes: true,
+        attributeFilter: ['class'],
+    });
+});
+
+
+// ! CHAT GPT END
+
 
 // !AI generated code START
-// Initialize Splitting.js
-Splitting();
-AOS.init();
+// // Initialize Splitting.js
+// // Splitting();
+// // AOS.init();
 
-const aosSplittingElements = document.querySelectorAll("[data-splitting][data-aos][data-animate-class]");
+// const aosSplittingElements = document.querySelectorAll("[data-splitting][data-aos][data-animate-class]");
 
-aosSplittingElements.forEach(prt => {
-    const chars = prt.querySelectorAll('.char'); // Get the characters for the current parent
+// aosSplittingElements.forEach(prt => {
+//     const chars = prt.querySelectorAll('.char'); // Get the characters for the current parent
 
-    // Observe changes to the parent element's class list (where aos-animate will be added)
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'class' && prt.classList.contains('aos-animate')) {
-                // AOS has triggered, now apply Animate.css and delays to the chars
-                const speed = Number(prt.dataset.customSpeed || 0.05); // Use default if not set
-                const animatedClasses = prt.dataset.animateClass.trim().split(" ");
+//     // Observe changes to the parent element's class list (where aos-animate will be added)
+//     const observer = new MutationObserver((mutations) => {
+//         mutations.forEach((mutation) => {
+//             if (mutation.attributeName === 'class' && prt.classList.contains('aos-animate')) {
+//                 // AOS has triggered, now apply Animate.css and delays to the chars
+//                 const speed = Number(prt.dataset.customSpeed || 0.05); // Use default if not set
+//                 const animatedClasses = prt.dataset.animateClass.trim().split(" ");
 
-                if (animatedClasses.length) {
-                    chars.forEach((char, i) => {
-                        // Add initial Animate.css classes
-                        char.classList.add('animate__animated', ...animatedClasses);
-                        char.style.animationDelay = `${i * speed}s`;
+//                 if (animatedClasses.length) {
+//                     chars.forEach((char, i) => {
+//                         // Add initial Animate.css classes
+//                         char.classList.add('animate__animated', ...animatedClasses);
+//                         char.style.animationDelay = `${i * speed}s`;
 
-                        // Optional: Remove classes after animation completes
-                        // This allows the animation to re-play if the element goes out of view and comes back
-                        char.addEventListener('animationend', function handler() {
-                            char.classList.remove('animate__animated', ...animatedClasses);
-                            char.style.animationDelay = ''; // Clear delay
-                            char.removeEventListener('animationend', handler); // Remove listener
-                        }, { once: true });
-                    });
-                }
-                // Disconnect observer after the animation is triggered
-                // If you want the animation to re-trigger every time it enters view,
-                // you might need to re-attach the observer or handle the 'aos:out' event.
-                // For a simple 'animate once on scroll in', disconnecting is fine.
-                // observer.disconnect(); // Uncomment if you only want it to animate once per page load
-            }
-            else if (mutation.attributeName === 'class' && !prt.classList.contains('aos-animate')) {
-                console.warn("working");
+//                         // Optional: Remove classes after animation completes
+//                         // This allows the animation to re-play if the element goes out of view and comes back
+//                         char.addEventListener('animationend', function handler() {
+//                             char.classList.remove('animate__animated', ...animatedClasses);
+//                             char.style.animationDelay = ''; // Clear delay
+//                             char.removeEventListener('animationend', handler); // Remove listener
+//                         }, { once: true });
+//                     });
+//                 }
+//                 // Disconnect observer after the animation is triggered
+//                 // If you want the animation to re-trigger every time it enters view,
+//                 // you might need to re-attach the observer or handle the 'aos:out' event.
+//                 // For a simple 'animate once on scroll in', disconnecting is fine.
+//                 // observer.disconnect(); // Uncomment if you only want it to animate once per page load
+//             }
+//             else if (mutation.attributeName === 'class' && !prt.classList.contains('aos-animate')) {
+//                 console.warn("working");
 
-                // If element scrolls out of view, reset characters for re-animation
-                chars.forEach(char => {
-                    char.classList.remove('animate__animated', ...(prt.dataset.animateClass.trim().split(" ")));
-                    char.style.animationDelay = '';
-                });
-            }
-        });
-    });
+//                 // If element scrolls out of view, reset characters for re-animation
+//                 chars.forEach(char => {
+//                     char.classList.remove('animate__animated', ...(prt.dataset.animateClass.trim().split(" ")));
+//                     char.style.animationDelay = '';
+//                 });
+//             }
+//         });
+//     });
 
-    // Start observing the 'class' attribute for changes on the parent element
-    observer.observe(prt, { attributes: true });
-});
+//     // Start observing the 'class' attribute for changes on the parent element
+//     observer.observe(prt, { attributes: true });
+// });
 // !AI generated code END
 
 // !next code
