@@ -279,6 +279,7 @@
     --btn-shadow: rgba(245, 56, 56, 0.35);
 
     /* ! OTHERS */
+    --cookie-highlighted-text: #F53838;
     --scrollbar-bg: linear-gradient(var(--btn), #f70);
     --vertical-rule: #EEEFF2;
     --score-icon-bg: #FFECEC;
@@ -607,7 +608,7 @@ header {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 99;
+    z-index: 99999;
     /* so that it stays on top of all other elements */
 }
 
@@ -616,6 +617,32 @@ header {
         display: none;
     }
 }
+
+/* * ====================== */
+/* * COOKIES (OFFCANVAS) */
+/* * ====================== */
+
+#cookies .offcanvas {
+    background: light-dark(var(--light-slider), var(--dark-slider));
+    --bs-offcanvas-height: max(30vh, 30rem);
+}
+
+#cookies .offcanvas span {
+    color: var(--cookie-highlighted-text);
+    font-weight: 600;
+    font-style: italic;
+    display: inline-block;
+    width: 25rem;
+}
+
+#cookies .offcanvas a {
+    font-size: 5rem;
+    color: light-dark(var(--light-heading), var(--dark-heading));
+}
+
+
+
+
 
 
 /* * =========================== */

@@ -176,6 +176,17 @@ if (input) {
     });
 }
 
+// * ===========================
+// * BROWER COOKIES
+// * ===========================
+
+window.addEventListener("load", () => {
+    const offcanvasElement = document.querySelector("#cookies .offcanvas");
+    const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+    setTimeout(() => {
+        bsOffcanvas.show();
+    }, 15000);
+})
 
 // * ===========================
 // * COUNTER INCREMENT ANIMATION
@@ -268,10 +279,20 @@ const swiper = new Swiper('.carousel-custom', {
 // * =============
 
 window.addEventListener("load", () => {
-    console.log("loading");
-    document.documentElement.style.setProperty("--scrollbar-width", ".5rem");
-    const loader = document.querySelector(".loader-container").remove();
-})
+    const navEntries = performance.getEntriesByType("navigation");
+    const loadTime = navEntries.length
+        ? navEntries[0].loadEventEnd - navEntries[0].startTime
+        : performance.now();
+
+    const minimumTime = 1000; // 1s in ms
+    const remainingTime = Math.max(0, minimumTime - loadTime);
+
+    setTimeout(() => {
+        document.documentElement.style.setProperty("--scrollbar-width", ".5rem");
+        document.querySelector(".loader-container")?.remove();
+    }, remainingTime);
+});
+
 
 
 
