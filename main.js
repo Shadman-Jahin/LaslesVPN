@@ -24,6 +24,75 @@ function initializeLenis() {
 // Ensure Lenis initializes after the DOM is ready
 document.addEventListener('DOMContentLoaded', initializeLenis);
 
+// * ============================
+// * CURSOR ANIMATION
+// * ============================
+
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll("#cursor .circle");
+
+const colors = [
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838",
+    "#F53838"
+];
+
+circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+});
+
+window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+
+});
+
+function animateCircles() {
+
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+    });
+
+    requestAnimationFrame(animateCircles);
+}
+
+animateCircles();
+
+
 // * ============================================
 // * AOS INITIALIZE AND TEXT ANIMATION 
 // * ============================================
@@ -80,6 +149,33 @@ elements.forEach(parent => {
 });
 
 
+// * ========================
+// * LIGHT/DARK MODE
+// * ========================
+
+// SELECTING
+const input = document.querySelector("#dark-mode-check");
+const query = window.matchMedia("(prefers-color-scheme: light)");
+
+if (input) {
+    //  STORE
+    const stored = localStorage.getItem("light");
+    const userPref = stored !== null ? JSON.parse(stored) : query.matches;
+    input.checked = userPref;
+
+    // UPDATE BY USER
+    input.addEventListener("change", () => {
+        localStorage.setItem("light", JSON.stringify(input.checked));
+    });
+
+    // UPDATE BY THEME
+    query.addEventListener("change", e => {
+        if (localStorage.getItem("light") === null) {
+            input.checked = e.matches;
+        }
+    });
+}
+
 
 // * ===========================
 // * COUNTER INCREMENT ANIMATION
@@ -108,32 +204,6 @@ counters.forEach(counter => {
 });
 
 
-// * ========================
-// * LIGHT/DARK MODE
-// * ========================
-
-// SELECTING
-const input = document.querySelector("#dark-mode-check");
-const query = window.matchMedia("(prefers-color-scheme: light)");
-
-if (input) {
-    //  STORE
-    const stored = localStorage.getItem("light");
-    const userPref = stored !== null ? JSON.parse(stored) : query.matches;
-    input.checked = userPref;
-
-    // UPDATE BY USER
-    input.addEventListener("change", () => {
-        localStorage.setItem("light", JSON.stringify(input.checked));
-    });
-
-    // UPDATE BY THEME
-    query.addEventListener("change", e => {
-        if (localStorage.getItem("light") === null) {
-            input.checked = e.matches;
-        }
-    });
-}
 
 // * =====================
 // * CARD HOVER ANIMATION
