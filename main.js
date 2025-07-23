@@ -87,13 +87,8 @@ document.addEventListener('DOMContentLoaded', initializeLenis);
 // })
 
 // ! CHAT GPT START
-// ✅ Run Splitting first
 Splitting();
-
-// ✅ AOS Init
-AOS.init({
-    once: false // To allow repeated animation
-});
+AOS.init({ once: false });
 
 const elements = document.querySelectorAll('[data-splitting][data-aos][data-animate-class]');
 
@@ -101,29 +96,31 @@ elements.forEach(parent => {
     const chars = parent.querySelectorAll('.char');
     const animateClass = parent.dataset.animateClass.trim().split(" ");
     const speed = Number(parent.dataset.customSpeed) || 0.05;
-
-    // ✅ Keep a flag to check current state
     let isAnimated = false;
 
-    // Watch class changes with MutationObserver
+    const runAnimation = () => {
+        chars.forEach((char, i) => {
+            char.classList.remove("animate__animated", ...animateClass); // reset
+            void char.offsetWidth; // force reflow
+            char.classList.add("animate__animated", ...animateClass);
+            char.style.animationDelay = `${i * speed}s`;
+        });
+        isAnimated = true;
+    };
+
+    const resetAnimation = () => {
+        chars.forEach(char => {
+            char.classList.remove("animate__animated", ...animateClass);
+            char.style.animationDelay = '0s';
+        });
+        isAnimated = false;
+    };
+
     const observer = new MutationObserver(() => {
         if (parent.classList.contains('aos-animate')) {
-            if (!isAnimated) {
-                chars.forEach((char, i) => {
-                    char.classList.remove("animate__animated", ...animateClass); // Reset
-                    void char.offsetWidth; // Force reflow
-                    char.classList.add("animate__animated", ...animateClass);
-                    char.style.animationDelay = `${i * speed}s`;
-                });
-                isAnimated = true;
-            }
+            if (!isAnimated) runAnimation();
         } else {
-            // Reset on scroll out
-            chars.forEach(char => {
-                char.classList.remove("animate__animated", ...animateClass);
-                char.style.animationDelay = '0s';
-            });
-            isAnimated = false;
+            resetAnimation();
         }
     });
 
@@ -131,7 +128,16 @@ elements.forEach(parent => {
         attributes: true,
         attributeFilter: ['class'],
     });
+
+    // ✅ NEW: Trigger immediately if already visible (for header)
+    window.addEventListener('load', () => {
+        AOS.refresh(); // Step 1
+        if (parent.classList.contains('aos-animate')) {
+            runAnimation(); // Step 2
+        }
+    });
 });
+
 
 
 // ! CHAT GPT END
