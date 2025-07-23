@@ -84,11 +84,11 @@
                     </label>
                     <!-- LINKS -->
                     <div class="links">
-                        <a href="#">About</a>
-                        <a href="#">Features</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Testimonials</a>
-                        <a href="#">Help</a>
+                        <a href="#">Home</a>
+                        <a href="#feature">Features</a>
+                        <a href="#choose">Pricing</a>
+                        <a href="#customer">Testimonials</a>
+                        <a href="#subscribe">Help</a>
                     </div>
                     <!-- SIGN IN/UP -->
                     <div class="sign">
@@ -105,13 +105,13 @@
         <div class="banner">
             <div class="container grid">
                 <div class="banner-text">
-                    <h1 data-splitting data-animate-class="animate__lightSpeedInLeft" data-custom-speed=".05" data-aos>
+                    <h1 data-splitting data-animate-class="animate__lightSpeedInLeft" data-custom-speed=".09" data-aos>
                         Want
                         anything to
                         be easy with
                         <strong>LaslesVPN.</strong>
                     </h1>
-                    <p class="mt-08" data-splitting data-animate-class="animate__fadeInLeft" data-custom-speed=".01">
+                    <p class="mt-08" data-splitting data-animate-class="animate__flip" data-custom-speed=".03" data-aos>
                         Provide a network for all your
                         needs with ease and fun using
                         <b>LaslesVPN.</b> discover
@@ -119,12 +119,13 @@
                     </p>
 
                     <button type="button"
-                        class="btn-fill mt-20 animate__animated animate__flipInX animate__delay-2s">Get
+                        class="btn-fill mt-20 animate__animated animate__flipInX animate__delay-3s">Get
                         Started</button>
                 </div>
-                <div class="banner-image" data-aos="fade-down-left" data-aos-duration="1000" data-aos-offset="300">
-                    <img loading="lazy" data-aos="zoom-in" data-aos-duration="1000" data-aos-offset="300"
-                        src="images/header/banner.png" width="611" alt="banner image" class="img-fluid">
+                <div class="banner-image">
+                    <img loading="lazy" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500"
+                        data-aos-offset="300" src="images/header/banner.png" width="611" alt="banner image"
+                        class="img-fluid">
                 </div>
             </div>
         </div>
@@ -133,9 +134,9 @@
         <!--  SCORE -->
 
         <div class="score">
-            <div class="container" data-aos="flip-down" data-aos-duration="1000">
+            <div class="container">
                 <!-- USERS -->
-                <div class="score-item">
+                <div class="score-item" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1500">
                     <div class="score-icon">
                         <img loading="lazy" width="24" src="images/header/person-icon.svg" alt="person icon">
                     </div>
@@ -146,7 +147,7 @@
                 </div>
 
                 <!-- LOCATIONS -->
-                <div class="score-item">
+                <div class="score-item" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1800">
                     <div class="score-icon">
                         <img loading="lazy" width="24" src="images/header/location-icon.svg" alt="location icon">
                     </div>
@@ -157,7 +158,7 @@
                 </div>
 
                 <!-- SERVERS -->
-                <div class="score-item">
+                <div class="score-item" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="2100">
                     <div class="score-icon">
                         <img loading="lazy" width="24" src="images/header/server-icon.svg" alt="server icon">
                     </div>
@@ -187,8 +188,7 @@
                         Provide Many <br>
                         Features You Can Use
                     </h2>
-                    <p class="mt-08" data-splitting data-animate-class="animate__rotateInDownRight"
-                        data-aos="fade-left">
+                    <p class="mt-08" data-splitting data-animate-class="animate__bounceInRight" data-aos="fade-left">
                         You can explore the features that we provide with fun and have their own functions
                         each feature.
                     </p>
@@ -213,64 +213,92 @@
             <div class="container">
                 <div class="choose-title narrow">
                     <h2 data-splitting data-animate-class="animate__rotateIn" data-aos="zoom-in">Choose Your Plan</h2>
-                    <p>Let's choose the package that is best for you and explore it happily and cheerfully.</p>
+                    <p data-splitting data-animate-class="animate__bounceInRight" data-aos="fade-in">Let's choose the
+                        package that
+                        is
+                        best for you and
+                        explore it happily and cheerfully.</p>
                 </div>
                 <div class="choose-plan mt-24">
                     <!-- FREE PLAN -->
-                    <div class="choose-card">
+                    <div class="choose-card" data-aos="flip-right" data-aos-offset="400" data-aos-duration="1000"
+                        data-aos-delay="800">
                         <div class="card-image">
                             <img loading="lazy" src="images/choose/box.svg" width="145" class="img-fluid"
                                 alt="box image">
                         </div>
                         <h5 class="mt-12">Free Plan</h5>
                         <ul class="text-4 mt-12">
-                            <li>Unlimited Bandwitch</li>
-                            <li class="mt-04">Encrypted Connection</li>
-                            <li class="mt-04">No Traffic Logs</li>
-                            <li class="mt-04">Works on All Devices</li>
+                            <li data-aos="fade-left" data-aos-delay="1200" data-aos-duration="1000">Unlimited Bandwitch
+                            </li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1400" data-aos-duration="1000">
+                                Encrypted Connection</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1600" data-aos-duration="1000">No
+                                Traffic Logs</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1800" data-aos-duration="1000">Works
+                                on All Devices</li>
                         </ul>
 
-                        <h3 class="mt-52">Free</h3>
-                        <button type="button" class="btn-outline rounded-pill mt-08">Select</button>
+                        <h3 class="mt-52" data-splitting data-animate-class="animate__swing" data-custom-speed="1"
+                            data-aos>Free
+                        </h3>
+                        <button type="button" class="btn-outline rounded-pill mt-08" data-aos="flip-down"
+                            data-aos-duration="1300" data-aos-delay="800">Select</button>
                     </div>
 
                     <!-- STANDARD PLAN -->
-                    <div class="choose-card">
+                    <div class="choose-card" data-aos="flip-right" data-aos-offset="400" data-aos-duration="1000"
+                        data-aos-delay="400">
                         <div class="card-image">
                             <img loading="lazy" src="images/choose/box.svg" width="145" class="img-fluid"
                                 alt="box image">
                         </div>
                         <h5 class="mt-12">Free Plan</h5>
                         <ul class="text-4 mt-12">
-                            <li>Unlimited Bandwitch</li>
-                            <li class="mt-04">Encrypted Connection</li>
-                            <li class="mt-04">Yes Traffic Logs</li>
-                            <li class="mt-04">Works on All Devices</li>
-                            <li class="mt-04">Connect Anyware</li>
+                            <li data-aos="fade-left" data-aos-delay="700" data-aos-duration="1000">Unlimited Bandwitch
+                            </li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">
+                                Encrypted Connection</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1300" data-aos-duration="1000">Yes
+                                Traffic Logs</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1600" data-aos-duration="1000">Works
+                                on All Devices</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1900" data-aos-duration="1000">
+                                Connect Anyware</li>
                         </ul>
 
-                        <h3 class="mt-36">$9 <span class="text-1">/ mo</span></h3>
-                        <button type="button" class="btn-outline rounded-pill mt-08">Select</button>
+                        <h3 class="mt-36" data-splitting data-animate-class="animate__heartBeat" data-custom-speed="1"
+                            data-aos>$9 <span class="text-1">/ mo</span></h3>
+                        <button type="button" class="btn-outline rounded-pill mt-08" data-aos="flip-down"
+                            data-aos-duration="1300" data-aos-delay="400">Select</button>
                     </div>
 
                     <!-- PREMIUM PLAN -->
-                    <div class="choose-card">
+                    <div class="choose-card" data-aos="flip-right" data-aos-offset="400" data-aos-duration="1000">
                         <div class="card-image">
                             <img loading="lazy" src="images/choose/box.svg" width="145" class="img-fluid"
                                 alt="box image">
                         </div>
                         <h5 class="mt-12">Free Plan</h5>
                         <ul class="text-4 mt-12">
-                            <li>Unlimited Bandwitch</li>
-                            <li class="mt-04">Encrypted Connection</li>
-                            <li class="mt-04">Yes Traffic Logs</li>
-                            <li class="mt-04">Works on All Devices</li>
-                            <li class="mt-04">Connect Anyware</li>
-                            <li class="mt-04">Get New Features</li>
+                            <li data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">Unlimited Bandwitch
+                            </li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
+                                Encrypted Connection</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="900" data-aos-duration="1000">Yes
+                                Traffic Logs</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1200" data-aos-duration="1000">Works
+                                on All Devices</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1500" data-aos-duration="1000">
+                                Connect Anyware</li>
+                            <li class="mt-04" data-aos="fade-left" data-aos-delay="1800" data-aos-duration="1000">Get
+                                New Features</li>
                         </ul>
 
-                        <h3 class="mt-20">$12 <span class="text-1">/ mo</span></h3>
-                        <button type="button" class="btn-fill rounded-pill mt-08">Select</button>
+                        <h3 class="mt-20" data-splitting data-animate-class="animate__heartBeat" data-custom-speed="1"
+                            data-aos>$12 <span class="text-1">/ mo</span></h3>
+                        <button type="button" class="btn-fill rounded-pill mt-08" data-aos="flip-down"
+                            data-aos-duration="1300">Select</button>
                     </div>
                 </div>
             </div>
@@ -284,30 +312,38 @@
             <div class="container">
                 <!-- TITLE -->
                 <div class="narrow">
-                    <h2>Huge Global Network <br> of Fast VPN</h2>
-                    <p class="mt-08">See LaslesVPN everywhere to make it easier for you when you move locations.</p>
+                    <h2 data-splitting data-animate-class="animate__rotateIn" data-aos="zoom-in">Huge Global Network
+                        <br> of Fast VPN
+                    </h2>
+                    <p class="mt-08" data-splitting data-animate-class="animate__bounceInRight" data-aos="fade-in">See
+                        LaslesVPN everywhere to make it easier for you when you move locations.</p>
                 </div>
 
                 <!-- MAP IMAGE -->
                 <div class="network-image mt-60 text-center">
-                    <img loading="lazy" src="images/network/map.png" width="1060" alt="map" class="img-fluid">
+                    <img loading="lazy" src="images/network/map.png" width="1060" alt="map" class="img-fluid"
+                        data-aos="zoom-in" data-aos-duration="1000" data-aos-offset="400">
                 </div>
 
                 <!-- BRANDS -->
                 <div class="brands mt-40">
-                    <div class="brand-image">
+                    <div class="brand-image" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300">
                         <img loading="lazy" src="images/network/netflix.png" height="60" width="190" alt="netflix">
                     </div>
-                    <div class="brand-image">
+                    <div class="brand-image" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300"
+                        data-aos-delay="300">
                         <img loading="lazy" src="images/network/reddit.png" height="60" width="190" alt="reddit">
                     </div>
-                    <div class="brand-image">
+                    <div class="brand-image" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300"
+                        data-aos-delay="600">
                         <img loading="lazy" src="images/network/amazon.png" height="210" width="190" alt="amazon">
                     </div>
-                    <div class="brand-image">
+                    <div class="brand-image" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300"
+                        data-aos-delay="900">
                         <img loading="lazy" src="images/network/discord.png" height="60" width="190" alt="discord">
                     </div>
-                    <div class="brand-image">
+                    <div class="brand-image" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300"
+                        data-aos-delay="1200">
                         <img loading="lazy" src="images/network/spotify.png" height="60" width="190" alt="spotify">
                     </div>
                 </div>
@@ -321,13 +357,16 @@
         <section id="customer">
             <div class="container">
                 <div class="narrow">
-                    <h2>Trusted by Thousands of Happy Customer</h2>
-                    <p class="mt-08">These are the stories of our customers who have joined us with great pleasure when
+                    <h2 data-splitting data-animate-class="animate__rotateIn" data-aos="zoom-in">Trusted by Thousands of
+                        Happy Customer</h2>
+                    <p class="mt-08" data-splitting data-animate-class="animate__bounceInRight" data-aos="fade-in">These
+                        are the stories of our customers who have joined us with great pleasure when
                         using this
                         crazy feature.</p>
                 </div>
 
-                <div class="carousel-custom swiper mt-24">
+                <div class="carousel-custom swiper mt-24" data-aos="flip-up" data-aos-duration="1500"
+                    data-aos-offset="400">
                     <div class="swiper-wrapper">
                         <!-- CARD 1 -->
                         <div class="carousel-card swiper-slide">
@@ -463,13 +502,17 @@
         <!-- * SUBSCRIBE -->
         <!-- * ==================== -->
 
-        <section class="subscribe">
-            <div class="container">
+        <section id="subscribe">
+            <div class="container" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1500">
                 <div class="text">
-                    <h2>Subscribe Now for Get Special Features!</h2>
-                    <p class="mt-08">Let's subscribe with us and find the fun.</p>
+                    <h2 data-splitting data-aos-offset="400" data-animate-class="animate__bounceInRight"
+                        data-aos="fade-in">Subscribe Now for
+                        Get Special Features!</h2>
+                    <p class="mt-08" data-aos-offset="300" data-splitting data-animate-class="animate__rotateIn"
+                        data-aos="zoom-in">Let's
+                        subscribe with us and find the fun.</p>
                 </div>
-                <div class="button">
+                <div class="button" data-aos="flip-right" data-aos-duration="1500" data-aos-offset="300">
                     <button type="button" class="btn-fill">Subscribe Now</button>
                 </div>
             </div>
@@ -481,44 +524,51 @@
             <div class="logo">
                 <div class="logo-icon">
                     <img loading="lazy" src="images/header/logo-icon.svg" width="35" alt="logo icon">
-                    <h4>Lasles<strong>VPN</strong></h4>
+                    <h4 data-splitting data-animate-class="animate__backInDown" data-aos="fade-in">
+                        Lasles<strong>VPN</strong></h4>
                 </div>
-                <p class="mt-10">
+                <p class="mt-10" data-splitting data-animate-class="animate__backInUp" data-aos="fade-in">
                     <b>LaslesVPN</b> is a private virtual network that has unique
                     features and has high security.
                 </p>
                 <div class="social mt-10">
-                    <img loading="lazy" src="images/footer/facebook.svg" alt="facebook" width="64">
-                    <img loading="lazy" src="images/footer/twitter.svg" alt="twitter" width="64">
-                    <img loading="lazy" src="images/footer/instagram.svg" alt="instagram" width="64">
+                    <img loading="lazy" data-aos="flip-left" data-aos-duration="1500" src="images/footer/facebook.svg"
+                        alt="facebook" width="64">
+                    <img loading="lazy" data-aos="flip-left" data-aos-duration="1500" src="images/footer/twitter.svg"
+                        alt="twitter" width="64">
+                    <img loading="lazy" data-aos="flip-left" data-aos-duration="1500" src="images/footer/instagram.svg"
+                        alt="instagram" width="64">
                 </div>
-                <p>©2020LaslesVPN</p>
+                <p data-splitting data-animate-class="animate__backInUp" data-aos="fade-in">©2020LaslesVPN</p>
             </div>
 
             <div class="product">
-                <h5>Product</h5>
-                <a href="#">Download </a>
-                <a href="#">Pricing</a>
-                <a href="#">Locations</a>
-                <a href="#">Server</a>
-                <a href="#">Countries</a>
-                <a href="#">Blog</a>
+                <h5 data-splitting data-animate-class="animate__backInDown" data-aos="fade-in">Product</h5>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Download </a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Pricing</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Locations</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Server</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Countries</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Blog</a>
             </div>
 
             <div class="engage">
-                <h5>Engage</h5>
-                <a href="#">LaslesVPN ? </a>
-                <a href="#">FAQ</a>
-                <a href="#">Tutorials</a>
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <h5 data-splitting data-animate-class="animate__backInDown" data-aos="fade-in">Engage</h5>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">LaslesVPN ? </a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">FAQ</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Tutorials</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">About Us</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Privacy
+                    Policy</a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Terms of
+                    Service</a>
             </div>
 
             <div class="earn">
-                <h5>Earn Money</h5>
-                <a href="#">Become Partner </a>
-                <a href="#">Affiliate</a>
+                <h5 data-splitting data-animate-class="animate__backInDown" data-aos="fade-in">Earn Money</h5>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Become Partner
+                </a>
+                <a href="#" data-splitting data-animate-class="animate__backInRight" data-aos="fade-in">Affiliate</a>
             </div>
 
 

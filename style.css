@@ -502,6 +502,12 @@ p {
     gap: 4rem;
 }
 
+section,
+footer,
+header {
+    overflow: hidden
+}
+
 /* * ========= */
 /* * SCROLLBAR */
 /* * ========= */
@@ -972,12 +978,12 @@ nav .sign a {
 /* * SUBSCRIBE */
 /* * =============== */
 
-.subscribe {
+#subscribe {
     padding: 10rem 0;
     background: light-dark(var(--light-bg-shade-1), var(--dark-bg-shade-1));
 }
 
-.subscribe .container {
+#subscribe .container {
     padding: 5rem;
     background: light-dark(var(--light-bg), var(--dark-bg));
     border-radius: 1rem;
@@ -989,7 +995,7 @@ nav .sign a {
 }
 
 @media screen and (max-width: 992px) {
-    .subscribe .container {
+    #subscribe .container {
         place-items: center start;
         place-content: center center;
 
