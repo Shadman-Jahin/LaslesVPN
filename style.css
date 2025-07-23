@@ -261,6 +261,7 @@
     --light-slider: #fff;
     --light-slider-shadow: #dedede;
     --light-nav-bg: #fffa;
+    --light-card-bg: #fffe;
 
     /* ! DARK THEME */
     --dark-bg: #0d001d;
@@ -270,6 +271,7 @@
     --dark-slider: #0d001d;
     --dark-slider-shadow: #000;
     --dark-nav-bg: #0d001daa;
+    --dark-card-bg: #0d001dee;
 
     /* ! BUTTON */
     --btn: #F53838;
@@ -889,7 +891,7 @@ nav .sign a {
     --x: 0;
     --y: 0;
     border: .2rem solid transparent;
-    background: linear-gradient(light-dark(var(--light-bg), var(--dark-bg)), light-dark(var(--light-bg), var(--dark-bg))), radial-gradient(circle at var(--x) var(--y), light-dark(var(--light-para), var(--dark-para)), transparent, transparent);
+    background: linear-gradient(light-dark(var(--light-card-bg), var(--dark-card-bg)), light-dark(var(--light-card-bg), var(--dark-card-bg))), radial-gradient(circle at var(--x) var(--y), light-dark(var(--light-para), var(--dark-para)), transparent, transparent);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
