@@ -135,6 +135,23 @@ if (input) {
     });
 }
 
+// * =====================
+// * CARD HOVER ANIMATION
+// * =====================
+
+const container = document.querySelector(".choose-plan");
+const cards = container.querySelectorAll(".choose-card");
+
+container.addEventListener("mousemove", e => {
+    cards.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        el.style.setProperty("--x", x + "px");
+        el.style.setProperty("--y", y + "px");
+    })
+});
+
 
 // * =====================
 // * SWIPER JS
