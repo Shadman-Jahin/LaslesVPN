@@ -1,4 +1,3 @@
-
 // * ==========
 // * LENIS
 // * ==========
@@ -177,7 +176,15 @@ const swiper = new Swiper('.carousel-custom', {
 
 
 
+// * =============
+// * LOADER
+// * =============
 
+window.addEventListener("load", () => {
+    console.log("loading");
+    document.documentElement.style.setProperty("--scrollbar-width", ".5rem");
+    const loader = document.querySelector(".loader-container").remove();
+})
 
 
 
