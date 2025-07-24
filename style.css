@@ -913,7 +913,7 @@ nav .sign a {
     left: 0;
     top: 50%;
     translate: 0 -50%;
-    background: url("images/header/check-icon.svg") no-repeat center / cover;
+    background: url("images/header/check-icon.webp") no-repeat center / cover;
     width: 2.4rem;
     height: 2.4rem;
 }
@@ -969,7 +969,7 @@ nav .sign a {
     top: 50%;
     left: 0;
     translate: 0 -50%;
-    background: url("images/choose/check.svg");
+    background: url("images/choose/check.webp");
     width: 2.4rem;
     height: 2.4rem;
 
