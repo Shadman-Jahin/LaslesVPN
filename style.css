@@ -436,7 +436,7 @@ p {
     padding: 1.75rem 7.75rem;
     border-radius: 1rem;
     background: var(--btn);
-    transition: .3s;
+    transition: .3s !important;
 
     color: var(--btn-text);
     font: 700 1.6rem / 2.5rem "Rubik", sans-serif;
@@ -617,31 +617,6 @@ header {
         display: none;
     }
 }
-
-/* * ====================== */
-/* * COOKIES (OFFCANVAS) */
-/* * ====================== */
-
-#cookies .offcanvas {
-    background: light-dark(var(--light-slider), var(--dark-slider));
-    --bs-offcanvas-height: max(30vh, 30rem);
-}
-
-#cookies .offcanvas span {
-    color: var(--cookie-highlighted-text);
-    font-weight: 600;
-    font-style: italic;
-    display: inline-block;
-    width: 25rem;
-}
-
-#cookies .offcanvas a {
-    font-size: 5rem;
-    color: light-dark(var(--light-heading), var(--dark-heading));
-}
-
-
-
 
 
 

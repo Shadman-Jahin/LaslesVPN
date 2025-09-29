@@ -5,12 +5,12 @@
 // 1. Initialize Lenis
 function initializeLenis() {
     const lenis = new Lenis({
-        duration: 1.5, // Duration of the smooth scroll animation in seconds
+        duration: 1, // Duration of the smooth scroll animation in seconds
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
         direction: 'vertical', // vertical, horizontal
         gestureDirection: 'vertical', // vertical, horizontal, both
         smoothWheel: true, // Enables smooth scrolling for mouse wheel
-        wheelMultiplier: 1.5, // Adjust scroll speed for mouse wheel
+        wheelMultiplier: 1, // Adjust scroll speed for mouse wheel
         smoothTouch: false, // Disables smooth scrolling for touch devices (often better for mobile performance)
         touchMultiplier: 2, // Adjust scroll speed for touch
         infinite: false, // Enables infinite scroll
@@ -176,17 +176,6 @@ if (input) {
     });
 }
 
-// * ===========================
-// * BROWER COOKIES
-// * ===========================
-
-window.addEventListener("load", () => {
-    const offcanvasElement = document.querySelector("#cookies .offcanvas");
-    const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
-    setTimeout(() => {
-        bsOffcanvas.show();
-    }, 15000);
-})
 
 // * ===========================
 // * COUNTER INCREMENT ANIMATION
